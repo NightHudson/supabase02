@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
     const produtosAlterados = {};
   
-    //--------------------------------------
+
     function formatarData(textoData) {
         if (!textoData) return '-';
   
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return 'R$ ' + Number(preco).toFixed(2).replace('.', ',');
     }
   
-    //--------------------------------------
+
     async function buscarEMostrarProdutos() {
         try {
             const { data, error } = await supabase
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
   
-    //--------------------------------------
+
     document.addEventListener('click', function (e) {
         if (e.target.classList.contains('up') || e.target.classList.contains('down')) {
             const id = e.target.dataset.id;
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
   
-    //--------------------------------------
+
     document.getElementById('salvarAlteracoes').addEventListener('click', async () => {
         const updates = Object.entries(produtosAlterados);
   
@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
         produtosAlterados = {};
         buscarEMostrarProdutos();
     });
+    
 
     document.getElementById('adicionarProduto').addEventListener('click', async () => {
         const nome = prompt('Nome do produto:');
@@ -145,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Produto adicionado com sucesso!');
         buscarEMostrarProdutos();
     });
+
 
     document.getElementById('excluirProduto').addEventListener('click', async () => {
         const id = prompt('Digite o ID do produto a ser excluído:');
